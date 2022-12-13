@@ -10,18 +10,21 @@ public class Pizza {
     boolean isBagAdded;
     boolean isBillGenerated;
     private int toppingsPrice;
+    private int cheesePrice;
+    private int takeAwayPrice;
     public Pizza(Boolean isVeg){
         this.isVeg = isVeg;
 
         if(isVeg) {
             this.price = 300;
-            this.toppingsPrice = 80;
+            this.toppingsPrice = 70;
         }
         else {
             this.price = 400;
             this.toppingsPrice = 120;
         }
-
+        this.takeAwayPrice= 20;
+        this.cheesePrice= 80;
         this.isCheeseAdded= false;
         this.isToppingsAdded= false;
         this.isBagAdded= false;
@@ -36,7 +39,7 @@ public class Pizza {
 
         if(isCheeseAdded== false){
 
-            this.price+= 80;
+            this.price+= this.cheesePrice;
             isCheeseAdded= true;
         }
     }
@@ -44,11 +47,8 @@ public class Pizza {
     public void addExtraToppings(){
 
         if(isToppingsAdded==false) {
-            if (isVeg) {
-                this.price += 70;
-            } else {
-                this.price += 120;
-            }
+
+            this.price += this.toppingsPrice;
             isToppingsAdded = true;
         }
     }
@@ -56,7 +56,7 @@ public class Pizza {
     public void addTakeaway() {
 
             if (isBagAdded == false){
-                this.price += 20;
+                this.price += this.takeAwayPrice;
                 isBagAdded= true;
             }
     }
