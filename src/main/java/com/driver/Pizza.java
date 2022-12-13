@@ -29,6 +29,8 @@ public class Pizza {
         this.isToppingsAdded= false;
         this.isBagAdded= false;
         this.isBillGenerated= false;
+
+        this.bill= "Base Price Of The Pizza: "+this.price+"\n";
     }
 
     public int getPrice(){
@@ -63,22 +65,17 @@ public class Pizza {
 
     public String getBill(){
         if(isBillGenerated== false) {
-            if (isVeg) {
-                this.bill += "Base Price Of The Pizza: 300" + "\n";
-            }
-            else
-                this.bill += "Base Price Of The Pizza: 400" + "\n";
 
             if(isCheeseAdded){
-            this.bill += "Extra Cheese Added: 40" + "\n";}
+            this.bill += "Extra Cheese Added: "+ this.cheesePrice + "\n";}
 
             if(isToppingsAdded){
             this.bill += "Extra Toppings Added: " +this.toppingsPrice + "\n";}
 
             if(isBagAdded){
-            this.bill += "Paperbag Added: 20";}
+            this.bill += "Paperbag Added: "+this.takeAwayPrice+"\n";}
 
-            this.bill += "Total Price: " + this.price;
+            this.bill += "Total Price: " + this.price+ "\n";
 
             this.isBillGenerated = true;
         }
